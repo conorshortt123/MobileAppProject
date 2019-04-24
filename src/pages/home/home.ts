@@ -15,7 +15,7 @@ export class HomePage {
   regPassword:string;
   displayUsername:string;
   usernameMsg:string;
-  continue: Boolean;
+  public hideMe: boolean = false;
 
   constructor(public navCtrl: NavController, private storage: Storage) {
   
@@ -31,9 +31,10 @@ export class HomePage {
       this.regPassword = val;
       console.log("local storage retrieved password: " + this.regPassword);
     })
-    if(this.username == undefined){
+    if(this.displayUsername == undefined){
       this.usernameMsg = "Logged out";
     } else {
+      this.hideMe = true;
       this.usernameMsg = "Logged in as: ";
     }
 
@@ -52,17 +53,18 @@ export class HomePage {
         console.log("local storage retrieved password: " + this.regPassword);
         })
   
-        if (this.username == undefined){
+        if (this.displayUsername == undefined){
           this.usernameMsg = "Logged out";
+          this.displayUsername = null;
         } else {
-          this.usernameMsg = "Logged in as: ";
+          if(this.displayUsername == this.regUsername && this.password == this.regPassword){
+            alert("Welcome " + this.regUsername);
+            this.usernameMsg = "Logged in as: ";
+            this.hideMe = true;
+            this.displayUsername = this.regUsername;
+          }
         }
     
-        if(this.username == this.regUsername && this.password == this.regPassword){
-          alert("Welcome " + this.regUsername);
-          this.usernameMsg = "Logged in as: ";
-          this.displayUsername = this.regUsername;
-        }
       }
     }) 
   }

@@ -1,10 +1,12 @@
 <ion-header>
   <ion-navbar>
+      <ion-item>{{usernameMsg}}{{displayUsername}}</ion-item>
+      <button ion-button small (click)="logout()">Logout</button>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
     <ion-title>
-        Dice Roll Game
-      </ion-title>  
+        Roll The Dice
+    </ion-title>  
 </ion-content>

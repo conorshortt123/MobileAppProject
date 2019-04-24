@@ -1,5 +1,6 @@
 <ion-content padding>
-      <ion-item>{{usernameMsg}}{{displayUsername}}</ion-item>
+      <ion-item>{{usernameMsg}}</ion-item>
+      <ion-item *ngIf="hideMe">{{displayUsername}}</ion-item> 
       <button ion-button small (click)="logout()">Logout</button>
     <ion-title >Roll The Dice</ion-title>
     <ion-list>
