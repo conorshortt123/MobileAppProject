@@ -1,7 +1,10 @@
 <ion-content padding>
-      <ion-item>{{usernameMsg}}</ion-item>
-      <ion-item *ngIf="hideMe">{{displayUsername}}</ion-item> 
-      <button ion-button small (click)="logout()">Logout</button>
+      <ion-grid>
+        <ion-row>{{usernameMsg}}</ion-row>
+        <ion-row *ngIf="hideMe">{{displayUsername}}</ion-row> 
+        <ion-row><button ion-button small (click)="logout()">Logout</button></ion-row>
+      </ion-grid>
+      
     <ion-title >Roll The Dice</ion-title>
     <ion-list>
         <ion-item>
@@ -14,5 +17,5 @@
     
     <button ion-button full (click)="login()">Login</button>
     <button ion-button full color="light" (click)="gotoRegister()">Register</button>
-    <button ion-button full color="danger" (click)="clear()">Clear storage</button>
+    <button ion-button full color="danger" (click)="clear()">Clear LocalStorage</button>
 </ion-content>
