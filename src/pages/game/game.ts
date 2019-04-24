@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { Platform } from 'ionic-angular';
-//import { Shake } from '@ionic-native/shake';
+import { Shake } from '@ionic-native/shake';
 
 @Component({
   selector: 'page-game',
@@ -9,13 +9,12 @@ import { Platform } from 'ionic-angular';
 })
 export class GamePage {
 
-  /*constructor(public navCtrl: NavController, private platform: Platform, private shake: Shake) {
+  constructor(public navCtrl: NavController, private platform: Platform, private shake: Shake) {
     this.platform.ready().then(() => {
       this.shake.startWatch().subscribe(data =>{
-        alert(shake!);
+        alert("shake!");
         console.log('shake!');
       })
     })
-  }*/
-
+  }
 }

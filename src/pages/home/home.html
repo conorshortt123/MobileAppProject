@@ -1,10 +1,10 @@
 <ion-content padding>
-      <ion-item>{{usernameMsg}}{{username}}</ion-item>
+      <ion-item>{{usernameMsg}}{{displayUsername}}</ion-item>
       <button ion-button small (click)="logout()">Logout</button>
-    <ion-title>Roll The Dice</ion-title>
+    <ion-title >Roll The Dice</ion-title>
     <ion-list>
         <ion-item>
-          <ion-input placeholder="Username" [(ngModel)]="username"></ion-input>
+          <ion-input placeholder="Username" [(ngModel)]="displayUsername"></ion-input>
         </ion-item>
         <ion-item>
           <ion-input placeholder="Password" type="password" [(ngModel)]="password"></ion-input>

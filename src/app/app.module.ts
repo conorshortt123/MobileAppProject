@@ -9,8 +9,7 @@ import { HomePage } from '../pages/home/home';
 import { TabsPage } from '../pages/tabs/tabs';
 import { WelcomePage } from '../pages/welcome/welcome';
 
-
-//import { Shake } from '@ionic-native/shake';
+import { Shake } from '@ionic-native/shake';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { RegisterPage } from '../pages/register/register';
@@ -44,7 +43,7 @@ import { IonicStorageModule } from '@ionic/storage';
   providers: [
     StatusBar,
     SplashScreen,
-    //Shake,
+    Shake,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })

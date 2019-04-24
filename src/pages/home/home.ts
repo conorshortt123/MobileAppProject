@@ -13,6 +13,7 @@ export class HomePage {
   password:string;
   regUsername:string;
   regPassword:string;
+  displayUsername:string;
   usernameMsg:string;
   continue: Boolean;
 
@@ -60,6 +61,7 @@ export class HomePage {
         if(this.username == this.regUsername && this.password == this.regPassword){
           alert("Welcome " + this.regUsername);
           this.usernameMsg = "Logged in as: ";
+          this.displayUsername = this.regUsername;
         }
       }
     }) 
