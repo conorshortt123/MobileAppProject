@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { NavController} from 'ionic-angular';
 import { RegisterPage } from '../register/register';
 import { Storage } from '@ionic/storage';
+import { TabsPage } from '../tabs/tabs';
+import { WelcomePage } from '../welcome/welcome';
 
 @Component({
   selector: 'page-home',
@@ -31,10 +33,9 @@ export class HomePage {
       this.regPassword = val;
       console.log("local storage retrieved password: " + this.regPassword);
     })
-    if(this.displayUsername == undefined){
+    if(this.username == undefined){
       this.usernameMsg = "Logged out";
     } else {
-      this.hideMe = true;
       this.usernameMsg = "Logged in as: ";
     }
 
@@ -55,23 +56,22 @@ export class HomePage {
   
         if (this.displayUsername == undefined){
           this.usernameMsg = "Logged out";
-          this.displayUsername = null;
         } else {
-          if(this.displayUsername == this.regUsername && this.password == this.regPassword){
-            alert("Welcome " + this.regUsername);
-            this.usernameMsg = "Logged in as: ";
-            this.hideMe = true;
-            this.displayUsername = this.regUsername;
-          }
+          this.usernameMsg = "Logged in as: ";
         }
     
+        if(this.displayUsername == this.regUsername && this.password == this.regPassword){
+          alert("Welcome " + this.regUsername);
+          this.usernameMsg = "Logged in as: ";
+          this.displayUsername = this.regUsername;
+          this.hideMe = true;
+        }
       }
     }) 
   }
 
   logout() {
-    this.regUsername = undefined;
-    this.regPassword = undefined;
+    this.hideMe = false;
     this.usernameMsg = "Logged out";
   }
 
@@ -81,6 +81,6 @@ export class HomePage {
 
   clear() {
     this.storage.clear();
-    this.navCtrl.pop();
+    this.navCtrl.push(WelcomePage);
   }
 }

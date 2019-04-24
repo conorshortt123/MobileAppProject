@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+ import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { Platform } from 'ionic-angular';
+import { Storage } from '@ionic/storage'
 import { Shake } from '@ionic-native/shake';
 
 @Component({
@@ -8,12 +9,19 @@ import { Shake } from '@ionic-native/shake';
   templateUrl: 'game.html'
 })
 export class GamePage {
+  displayUsername:string;
+  random:number;
 
-  constructor(public navCtrl: NavController, private platform: Platform, private shake: Shake) {
+  constructor(public navCtrl: NavController, private platform: Platform, private shake: Shake, private storage: Storage) {
+    
+    this.storage.get('storeUser').then((val) =>{
+      this.displayUsername = val;
+    })
+    
     this.platform.ready().then(() => {
       this.shake.startWatch().subscribe(data =>{
-        alert("shake!");
-        console.log('shake!');
+        this.random = Math.round((Math.random() * 6));
+        alert(this.random);
       })
     })
   }
