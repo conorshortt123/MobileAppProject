@@ -1,0 +1,40 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title margin-top="10px">
+      User Feed
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <ion-row>
+    <ion-col>
+            <div *ngFor="let user of users">
+            <ion-card>
+              <ion-item>
+                <ion-avatar item-start>
+                  <img src="{{user.picture.thumbnail}}">
+                </ion-avatar>
+                <h2>{{user.name.first}} {{user.name.last}}</h2>
+                <p>{{user.registered.date}}</p>
+              </ion-item>
+
+            <ion-card-content>
+              <p>{{user.location.street}}, {{user.location.city}}
+              {{user.location.state}}.</p>
+            </ion-card-content>
+            
+            <ion-row>
+              <ion-col>
+                <button ion-button icon-left clear small>
+                  <ion-icon name="thumbs-up"></ion-icon>
+                  <div>{{user.location.postcode}} likes</div>
+                </button>
+              </ion-col>
+            </ion-row>
+            
+            </ion-card>
+            </div>
+    </ion-col>
+  </ion-row>
+</ion-content>

@@ -2,9 +2,10 @@ import { NgModule, ErrorHandler } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { MyApp } from './app.component';
+import { HttpClientModule } from '@angular/common/http';
 
 import { GamePage } from '../pages/game/game';
-import { ContactPage } from '../pages/contact/contact';
+import { UsersPage } from '../pages/contact/Users';
 import { HomePage } from '../pages/home/home';
 import { TabsPage } from '../pages/tabs/tabs';
 import { WelcomePage } from '../pages/welcome/welcome';
@@ -14,12 +15,13 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { RegisterPage } from '../pages/register/register';
 import { IonicStorageModule } from '@ionic/storage';
+import { UserServiceProvider } from '../providers/user-service/user-service';
 
 @NgModule({
   declarations: [
     MyApp,
     GamePage,
-    ContactPage,
+    UsersPage,
     HomePage,
     TabsPage,
     RegisterPage,
@@ -28,13 +30,14 @@ import { IonicStorageModule } from '@ionic/storage';
   imports: [
     BrowserModule,
     IonicModule.forRoot(MyApp),
-    IonicStorageModule.forRoot()
+    IonicStorageModule.forRoot(),
+    HttpClientModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
     GamePage,
-    ContactPage,
+    UsersPage,
     HomePage,
     TabsPage,
     RegisterPage,
@@ -44,7 +47,8 @@ import { IonicStorageModule } from '@ionic/storage';
     StatusBar,
     SplashScreen,
     Shake,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    UserServiceProvider
   ]
 })
 export class AppModule {}

@@ -2,7 +2,6 @@ import { Component } from '@angular/core';
 import { NavController} from 'ionic-angular';
 import { RegisterPage } from '../register/register';
 import { Storage } from '@ionic/storage';
-import { TabsPage } from '../tabs/tabs';
 import { WelcomePage } from '../welcome/welcome';
 
 @Component({
@@ -18,6 +17,8 @@ export class HomePage {
   displayUsername:string;
   usernameMsg:string;
   public hideMe: boolean = false;
+  highScore:number = 500;
+  displayHighScore:number;
 
   constructor(public navCtrl: NavController, private storage: Storage) {
   
@@ -25,14 +26,19 @@ export class HomePage {
 
   ionViewDidLoad() {
 
+    //Retrieving data from local storage: username, password, and high score.
     this.storage.get('storeUser').then((val) =>{
       this.regUsername = val;
-      console.log("local storage retrieved username: " + this.regUsername);
     })
     this.storage.get('storePass').then((val) =>{
       this.regPassword = val;
-      console.log("local storage retrieved password: " + this.regPassword);
     })
+    this.storage.get('highest').then((val) =>{
+      if(val > this.highScore){
+        this.highScore = val;
+      }
+    })
+
     if(this.username == undefined){
       this.usernameMsg = "Logged out";
     } else {
@@ -47,11 +53,9 @@ export class HomePage {
         this.navCtrl.push(RegisterPage);
       } else {
         this.regUsername = val;
-        console.log("local storage retrieved username: " + this.regUsername);
-  
+
         this.storage.get('storePass').then((val) =>{
         this.regPassword = val;
-        console.log("local storage retrieved password: " + this.regPassword);
         })
   
         if (this.displayUsername == undefined){
@@ -64,6 +68,7 @@ export class HomePage {
           alert("Welcome " + this.regUsername);
           this.usernameMsg = "Logged in as: ";
           this.displayUsername = this.regUsername;
+          this.displayHighScore = this.highScore;
           this.hideMe = true;
         }
       }
