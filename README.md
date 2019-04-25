@@ -1,4 +1,4 @@
-"# MobileAppProject - Conor Shortt #" 
+"# MobileAppProject - User Guide - Conor Shortt #" 
 
 INSTRUCTIONS:
 - Tap 'proceed' to navigate from the Welcome page to the Home page.
