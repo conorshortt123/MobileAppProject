@@ -7,7 +7,8 @@
 -	Commit 3: Started working on Game page. Added a slider to select the amount of cash to bet. User starts with a max of 500.
 	Used a FAB (Floating Action Button) for the user to guess the number of which the dice will land on. Also added a default image and
 	currently are working on sizes etc.
--	Commit 4: 	-Shake plugin now generates a random number between 1 and 6 which displays the subsequent dice image. 
-				-User now gains the amount they bet into their total cash.
-				-User loses half of their bet if they guess incorrectly.
-				-Game ends and navctrl pushes back to Welcome page if total cash goes below 5.
+-	Commit 4: 	
+		-Shake plugin now generates a random number between 1 and 6 which displays the subsequent dice image. 
+		-User now gains the amount they bet into their total cash.
+		-User loses half of their bet if they guess incorrectly.
+		-Game ends and navctrl pushes back to Welcome page if total cash goes below 5.
