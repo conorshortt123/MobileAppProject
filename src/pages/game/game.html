@@ -1,6 +1,10 @@
 <ion-header>
         <ion-navbar>
-            <ion-item>Username: {{displayUsername}}</ion-item>
+            <ion-item>
+                Username: {{displayUsername}}
+                &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&nbsp;
+                Cash: {{totalCash}}
+            </ion-item>
         </ion-navbar>
 </ion-header>
 
@@ -32,9 +36,14 @@
             <button ion-fab (click)="rollGuess(4)">4</button>      
             <button ion-fab (click)="rollGuess(5)">5</button>      
             <button ion-fab (click)="rollGuess(6)">6</button>   
-        </ion-fab-list>   
+        </ion-fab-list>
     </ion-fab>
-    <ion-item>
-    <ion-img height="80" width="80" src="../../assets/imgs/logo.png"></ion-img>
-    </ion-item>
+    <ion-list>
+        <ion-item no-lines>
+            Your guess: {{numGuess}}        
+        </ion-item>        
+        <ion-item id="image">
+            <ion-img height="80" width="80" src={{imgName}}></ion-img>
+        </ion-item>
+    </ion-list>
 </ion-content>
