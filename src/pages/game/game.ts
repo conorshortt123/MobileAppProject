@@ -11,6 +11,8 @@ import { Shake } from '@ionic-native/shake';
 export class GamePage {
   displayUsername:string;
   random:number;
+  bet:any;
+  totalCash:any = 500;
 
   constructor(public navCtrl: NavController, private platform: Platform, private shake: Shake, private storage: Storage) {
     
@@ -24,5 +26,9 @@ export class GamePage {
         alert(this.random);
       })
     })
+  }
+
+  rollGuess(guess: number) {
+
   }
 }
