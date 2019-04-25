@@ -15,3 +15,4 @@
 	Game page UI improved slightly with some color additions and margins. Alert when choice is selected.
 	Added "Users" page. Which utilizes HttpClient and requests from the url https://randomuser.me/api/?results=30. This is a simple api that
 	generates random users. User picture, registration date, first and last name , address , and post code which I modified to resemble facebook likes.
+-	Commit 6: Added vibration plugin, phone now vibration when dice is rolled/shook.

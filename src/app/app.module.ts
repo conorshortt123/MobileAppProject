@@ -10,6 +10,7 @@ import { HomePage } from '../pages/home/home';
 import { TabsPage } from '../pages/tabs/tabs';
 import { WelcomePage } from '../pages/welcome/welcome';
 
+import { Vibration } from '@ionic-native/vibration';
 import { Shake } from '@ionic-native/shake';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -47,6 +48,7 @@ import { UserServiceProvider } from '../providers/user-service/user-service';
     StatusBar,
     SplashScreen,
     Shake,
+    Vibration,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     UserServiceProvider
   ]

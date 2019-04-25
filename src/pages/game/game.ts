@@ -1,8 +1,9 @@
- import { Component } from '@angular/core';
+import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { Platform } from 'ionic-angular';
 import { Storage } from '@ionic/storage'
 import { Shake } from '@ionic-native/shake';
+import { Vibration } from '@ionic-native/vibration';
 import { WelcomePage } from '../welcome/welcome';
 
 @Component({
@@ -21,10 +22,8 @@ export class GamePage {
   imgExt:string = ".jpg";
   highScore:number = 500;
 
-  constructor(public navCtrl: NavController, private platform: Platform, private shake: Shake, private storage: Storage) {
-    
-    
-  }
+  constructor(public navCtrl: NavController, private platform: Platform, 
+              private shake: Shake, private storage: Storage, private vibration: Vibration) {}
 
   ionViewDidEnter() {
     this.imgName = "../../assets/imgs/QuestionMark.jpg";
@@ -35,6 +34,8 @@ export class GamePage {
 
     this.platform.ready().then(() => {
       this.shake.startWatch(30).subscribe(data =>{
+        //Trigger vibration
+        this.vibration.vibrate(1000);
         //Checking if guess and random num are equal
         this.random = Math.round((Math.random() * 5) + 1);
         if(this.random == this.numGuess){
