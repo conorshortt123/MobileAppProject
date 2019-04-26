@@ -14,6 +14,9 @@ export class UsersPage {
     this.presentLoading();
   }
 
+  /*
+   * Subscribes to the user service and populates users array with data from the http get request.
+   */
   users:any = [];
   ionViewWillEnter() {
     this.userService.getUsers().subscribe((data) => 
@@ -22,6 +25,9 @@ export class UsersPage {
     });
   }
 
+  /*
+   * Simple LoadingController, displays upon page entry. Shows for 2 seconds and then dismisses.
+   */
   presentLoading() {
     const loader = this.loading.create({
       content: "Please wait...",
