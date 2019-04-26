@@ -3,12 +3,12 @@
 INSTRUCTIONS:
 - Tap 'proceed' to navigate from the Welcome page to the Home page.
 - Home page has 3 buttons, 'Register', 'Login', 'Logout', and 'Clear Storage'. User can register and then log in using their details to     display username on top left on page and high score on top right. User can also log out to hide high score and username. Clear storage     to get rid of anything saved in local storage (username, password, high score).
-- Game page displays username on top left and current cash on top right (cash starts at 500). The user can adjust a slider to set the       amount they wish to bet. The user then hits the "+" button located at the right hand side of the page. This is a Floating Action Button   and allows the user to choose a number from 1-6 to guess what side the dice will land on. The user then shakes the phone and it will       generate a dice face, if the user guesses correctly their total cash is increased by their bet amount, if they guess incorrectly they     lose half of their bet amount. The phone also vibrates upon being shook. If total cash exceeds high score then total cash is set to high   score in local storage and displayed on the home page.
+- Game page displays username on top left and current cash on top 	right (cash starts at 500). The user can adjust a slider to set the       amount they wish to bet, or user can tap the badge to enter bet manually. The user then hits the "+" button located at the right hand side of the page. This is a Floating Action Button   and allows the user to choose a number from 1-6 to guess what side the dice will land on. The user then shakes the phone and it will       generate a dice face, if the user guesses correctly their total cash is increased by their bet amount, if they guess incorrectly they     lose half of their bet amount. The phone also vibrates upon being shook. If total cash exceeds high score then total cash is set to high   score in local storage and displayed on the home page.
 - Users page retrieves json data from a user generator api, parses it and displays it to the screen. Information such as first name, last   name, registration date, and thumbnail pic is displayed.
 
 COMMIT INFORMATION:
 
-- Commit 1: Registration section of the app finished, user can now log in/register and with the use of two way data binding,
+- 	Commit 1: Registration section of the app finished, user can now log in/register and with the use of two way data binding,
 	display the username at the top of the app. Username and password are saved using the local storage plugin.
 -	Commit 2: Installed the "shake" plugin which will be later used to roll the dice. For now it simply alerts "shake!" to the phone screen
 	when the accelerometer exceeds the default sensitivity of 40.
