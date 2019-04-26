@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { UserServiceProvider } from '../../providers/user-service/user-service';
+import { LoadingController } from 'ionic-angular';
 
 @Component({
   selector: 'page-users',
@@ -9,8 +10,8 @@ import { UserServiceProvider } from '../../providers/user-service/user-service';
 
 export class UsersPage {
 
-  constructor(private userService: UserServiceProvider, public navCtrl: NavController) {
- 
+  constructor(private userService: UserServiceProvider, public navCtrl: NavController, private loading:LoadingController) {
+    this.presentLoading();
   }
 
   users:any = [];
@@ -19,6 +20,15 @@ export class UsersPage {
     {
       this.users = data.results; 
     });
+  }
+
+  presentLoading() {
+    const loader = this.loading.create({
+      content: "Please wait...",
+      duration: 2000,
+      showBackdrop: true
+    });
+    loader.present();
   }
 
 }

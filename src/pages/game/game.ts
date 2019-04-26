@@ -5,6 +5,7 @@ import { Storage } from '@ionic/storage'
 import { Shake } from '@ionic-native/shake';
 import { Vibration } from '@ionic-native/vibration';
 import { WelcomePage } from '../welcome/welcome';
+import { AlertController } from 'ionic-angular';
 
 @Component({
   selector: 'page-game',
@@ -23,7 +24,8 @@ export class GamePage {
   highScore:number = 500;
 
   constructor(public navCtrl: NavController, private platform: Platform, 
-              private shake: Shake, private storage: Storage, private vibration: Vibration) {}
+              private shake: Shake, private storage: Storage, 
+              private vibration: Vibration, private alertCtrl: AlertController) {}
 
   ionViewDidEnter() {
     this.imgName = "../../assets/imgs/QuestionMark.jpg";
@@ -99,5 +101,33 @@ export class GamePage {
       alert("Your guess is 6!");
       break;
     }
+  }
+
+  badgeClick() {
+    let alertCtrl = this.alertCtrl.create({
+      title: 'Place bet',
+      inputs: [
+        {
+          name: 'bet',
+          placeholder: 'Bet'
+        },
+      ],
+      buttons: [
+        {
+          text: 'Cancel',
+          role: 'cancel',
+          handler: data => {
+            console.log('Cancel clicked');
+          }
+        },
+        {
+          text: 'Enter',
+          handler: data => {
+            this.bet = data.bet;
+          }
+        }
+      ]
+    });
+    alertCtrl.present();
   }
 }

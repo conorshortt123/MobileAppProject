@@ -12,9 +12,12 @@
     <ion-title>Roll The Dice</ion-title>
     <ion-list>
         <ion-list-header>
-            Adjust the slider to the amount you wish to bet:
-            <ion-badge item-end color="secondary">{{bet}}</ion-badge>
+            Adjust the slider to the amount you wish to bet:<br>
+            Or press the green badge to enter manually.
         </ion-list-header>
+        <button float-right small ion-button (click)="badgeClick()" color="secondary">
+                <ion-badge item-end color="secondary">{{bet}}</ion-badge>
+        </button>
         <ion-item>
             <ion-range [(ngModel)]="bet" min="1" max={{totalCash}} color="secondary">
                 <ion-icon small range-left name="cash"></ion-icon>
@@ -43,7 +46,11 @@
             Your guess: {{numGuess}}        
         </ion-item>        
         <ion-item id="image" color="light">
+            <p>Result:</p>
             <ion-img height="80" width="80" src={{imgName}}></ion-img>
+        </ion-item>
+        <ion-item id="shakeMsg">
+            Shake your phone to roll the dice!
         </ion-item>
     </ion-list>
 </ion-content>
