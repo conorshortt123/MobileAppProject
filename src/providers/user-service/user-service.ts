@@ -8,9 +8,9 @@ import 'rxjs/add/operator/map';
 export class UserServiceProvider {
 
   constructor(private http: HttpClient) {
-    console.log('Hello UserServiceProvider Provider');
   }
 
+  //Gets http data from the URL. "logRes" method displays data in console, I used this when fixing errors.
   getUsers():Observable<any> {
     return this.http.get("https://randomuser.me/api/?results=30")
     .do(this.logRes)

@@ -39,6 +39,7 @@ export class HomePage {
       }
     })
 
+    //If username is already set then display logged in message.
     if(this.username == undefined){
       this.usernameMsg = "Logged out";
     } else {
@@ -48,12 +49,13 @@ export class HomePage {
   } 
 
   login() {   
+    //Log in method, checks if there is a stored username, if there is not then go to RegisterPage, else continue.
     this.storage.get('storeUser').then((val) =>{
       if(val == undefined){
         this.navCtrl.push(RegisterPage);
       } else {
+        //Sets registered username & password in variables.
         this.regUsername = val;
-
         this.storage.get('storePass').then((val) =>{
         this.regPassword = val;
         })
@@ -63,7 +65,9 @@ export class HomePage {
         } else {
           this.usernameMsg = "Logged in as: ";
         }
-    
+        
+        //Compares username the user entered against the local storage username and password. If true then
+        //displays a welcome message, displays username in top left, and displays high score.
         if(this.displayUsername == this.regUsername && this.password == this.regPassword){
           alert("Welcome " + this.regUsername);
           this.usernameMsg = "Logged in as: ";
@@ -76,6 +80,7 @@ export class HomePage {
   }
 
   logout() {
+    //Hides username and high score and displays logged out.
     this.hideMe = false;
     this.usernameMsg = "Logged out";
   }
@@ -85,6 +90,7 @@ export class HomePage {
   }
 
   clear() {
+    //Clears local storage username, password, and high score if necessary.
     this.storage.clear();
     this.navCtrl.push(WelcomePage);
   }

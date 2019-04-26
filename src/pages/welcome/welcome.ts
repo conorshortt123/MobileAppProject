@@ -17,6 +17,7 @@ export class WelcomePage {
   }
 
   gotoHome(){
+    //Pushes to tabs page when "proceed" button is pressed.
     this.navCtrl.push(TabsPage);
   }
 

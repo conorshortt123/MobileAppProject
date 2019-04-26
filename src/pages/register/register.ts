@@ -18,6 +18,12 @@ export class RegisterPage {
   
   }
 
+  /*
+   * Simple registration function, takes in 3 variables, username, password and repass.
+   * If password and repass are not equal user must re-input. If user doesn't fill in a field
+   * They must enter before continuing. If all of the above are ready then store username
+   * And password and return to Home.
+   */
   register() {
     if(this.username==undefined || this.password==undefined || this.repass==undefined){
       alert("Please fill in all fields.");

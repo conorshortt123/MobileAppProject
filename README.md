@@ -27,3 +27,5 @@ COMMIT INFORMATION:
 -	Commit 7: Badge that displays the user's bet amount now contains a button that when pressed triggers an AlertController which pops up on screen
 	and allows the user to enter a manual bet instead of using the slider. User page now contains a LoadingController which triggers when first
 	entering the User page. This is to allow the http get request to load before the user does anything.
+-	Commit 8: Added comments to all .ts files and some html comments to the main html components. Also cleaned up code by putting code from
+	main code into seperate functions, making it easier to read.

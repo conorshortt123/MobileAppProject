@@ -9,27 +9,36 @@
 </ion-header>
 
 <ion-content padding>
-    <ion-title>Roll The Dice</ion-title>
+    <ion-title>
+        Roll The Dice
+    </ion-title>
     <ion-list>
-        <ion-list-header>
-            Adjust the slider to the amount you wish to bet:<br>
-            Or press the green badge to enter manually.
-        </ion-list-header>
-        <button float-right small ion-button (click)="badgeClick()" color="secondary">
+        <ion-list>
+            <ion-list-header>
+                Adjust the slider to the amount you wish to bet:<br>
+                Or press the green badge to enter manually.
+            </ion-list-header>
+            <!--Button shaped as a dollar sign, and a badge which displays bet amount. Triggers an ActionSheetCtrller when pressed.-->
+            <button icon-only float-right small ion-button (click)="badgeClick()" color="secondary">
+                <ion-icon name="logo-usd"></ion-icon>    
                 <ion-badge item-end color="secondary">{{bet}}</ion-badge>
-        </button>
-        <ion-item>
-            <ion-range [(ngModel)]="bet" min="1" max={{totalCash}} color="secondary">
-                <ion-icon small range-left name="cash"></ion-icon>
-                <ion-icon range-right name="cash"></ion-icon>
-            </ion-range>
-        </ion-item>
+            </button>
+            <ion-item>
+                <!--Betting slider-->
+                <ion-range [(ngModel)]="bet" min="1" max={{totalCash}} color="secondary">
+                    <ion-icon small range-left name="cash"></ion-icon>
+                    <ion-icon range-right name="cash"></ion-icon>
+                </ion-range>
+            </ion-item>
+        </ion-list>
         <div id="guess">
             <hr>
             Hit the + button to select your guess!
-            <br><br><br><br><br><hr>
+            <h1 text-align="center">{{numGuess}}</h1>
+            <br><hr>
         </div>
     </ion-list>
+    <!--Floating action button, contains 6 buttons with 6 functions.-->
     <ion-fab middle right>
         <button ion-fab mini>+</button>
         <ion-fab-list side="left">
@@ -44,7 +53,8 @@
     <ion-list>
         <ion-item no-lines color="dark">
             Your guess: {{numGuess}}        
-        </ion-item>        
+        </ion-item> 
+        <!--Dice image-->      
         <ion-item id="image" color="light">
             <p>Result:</p>
             <ion-img height="80" width="80" src={{imgName}}></ion-img>
